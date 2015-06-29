@@ -14,7 +14,7 @@ var cards = [],
 	databaseSource = 'http://ygopro.us/manifest/database.json',
 	imageSource = 'http://ygopro.us/ygopro/pics/';
 
-cards = $.parseJSON(databaseSource);
+cards = $.getJSON(databaseSource);
 
 function createCardList(cards, destinationID) {
 	var destination = $('#' + destinationID),
