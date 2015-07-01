@@ -3,7 +3,7 @@
  * Generic card functions.
  * Assume cards is equal to or an already queried result of manifest/database.json
  *
- * Globals: databaseSource, imageSource, cards, filter functions
+ * Globals: jQuery, databaseSource, imageSource, cards, filter functions
  *
  * TODO:
  * 	- add locale database support
@@ -12,7 +12,15 @@
 
 var cards = [],
 	databaseSource = 'http://ygopro.us/manifest/database.json',
-	imageSource = 'http://ygopro.us/ygopro/pics/';
+	imageSource = 'http://ygopro.us/ygopro/pics/',
+	mainDeck = $('#mainDeck'), // main deck container
+	extraDeck = $('#extraDeck'), // extra deck container
+	sideDeck = $('#sideDeck'), // side deck container
+	cardContainer = $('#cardContainer'), // results container
+	nameInput = $('#nameInput'), // input for card names/descriptions
+	typeSelect = $('#typeSelect'), // select for type (Monster, Spell, Trap)
+	cardImage = $('#cardImage'), // selected card image
+	cardDescription = $('#cardDescription');s // selected card description
 
 cards = $.getJSON(databaseSource);
 
@@ -26,6 +34,20 @@ function createCardList(cards, destinationID) {
 }
 
 function execQuery(queryObject) {
-	cards = cards.filter(cardFilter(queryObject));
-	createCardList(cards, 'cardContainer');
+	var queriedCards = cards.filter(cardFilter(queryObject));
+	createCardList(queriedCards, 'cardContainer');
+}
+
+function cardFilter(queryObject) {
+	// tbd by Chibi
+	return function (card, index, array) {
+		var prop, data = queryObject.queryData, match;
+		for(prop in data) {
+			if(data.hasOwnProperty(prop) && data.propertyIsEnumerable(prop)) {
+				// Chibi filters, assume it works
+				// match is true or false for the filter, will have to communicate with Chibi
+			}
+		}
+		return match;
+	};
 }
