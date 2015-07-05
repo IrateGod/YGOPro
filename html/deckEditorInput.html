@@ -76,6 +76,13 @@
 	<option value="8388608">Wyrm</option>
 </select>
 
+<select id="forbiddenLimitedSelect">
+	<option value="3">Unlimited</option>
+	<option value="0">Forbidden</option>
+	<option value="1">Limited</option>
+	<option value="2">Semi-Limited</option>
+</select>
+
 <label for="levelInput">Level/Rank Input</label><input type="number" id="levelInput" name="levelInput" min="1" max="12">
 
 <label for="scaleInput">Scale Input</label><input type="number" id="scaleInput" name="scaleInput" min="1" max="12">
@@ -87,3 +94,15 @@
 <label for="nameInput">Name Input</label><input type="text" id="nameInput" name="nameInput">
 
 <label for="descInput">Description Input</label><input type="text" id="descInput" name="descInput">
+
+<input type="hidden" data-input-name>
+<input type="hidden" data-input-desc>
+<input type="hidden" data-input-type>
+<input type="hidden" data-input-attribute>
+<input type="hidden" data-input-setcode>
+<input type="hidden" data-input-race>
+<input type="hidden" data-input-atk>
+<input type="hidden" data-input-def>
+<input type="hidden" data-input-level>
+<input type="hidden" data-input-scale>
+<input type="hidden" data-input-forbiddenlimited>
