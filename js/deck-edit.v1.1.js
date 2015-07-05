@@ -12,7 +12,7 @@ $.get('http://ygopro.us/ygopro/lflist.conf', function(data) {
 
 function fAttrRace(obj, num, at) {
     'use strict';
-    var val = (at === 1) ? obj.Attribute : obj.Type;
+    var val = (at === 1) ? obj.attribute : obj.race;
     if (val === num) {
         return true;
     } else {
@@ -84,7 +84,7 @@ function fScale(obj, sc, op) {
 
 function fType(obj, ty) {
     'use strict';
-    var val = obj['type'];
+    var val = obj.type;
     if ((val & ty) > 0) {
         return true;
     } else {
@@ -118,7 +118,7 @@ function fAtkDef(obj, num, ad, op) {
 
 function fNameDesc(obj, txt, nd) {
     'use strict';
-    var val = (nd === 1) ? obj.name.toLowerCase() : obj['desc'].toLowerCase();
+    var val = (nd === 1) ? obj.name.toLowerCase() : obj.desc.toLowerCase();
     if (val.indexOf(txt.toLowerCase()) >= 0) {
         return true;
     } else {
