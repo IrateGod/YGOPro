@@ -8,7 +8,7 @@ $.get('http://ygopro.us/ygopro/lflist.conf', function(data) {
 		keyValueDelim: " ",
 		blockRegexp: /^\s?\!(.*?)\s?$/
 	});
-}
+});
 
 function fAttrRace(obj, num, at) {
     'use strict';
