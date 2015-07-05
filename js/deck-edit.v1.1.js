@@ -207,6 +207,9 @@ function filterScale(result, scale, op) {
 
 function filterForbiddenLimited(result, selectedLimitation, placeholder, selectedBanlist, config) {
 	return result.filter(function(card) {
+		if(!(card.id in config[selectedBanlist]) && selectedLimitation === 3) {
+			return true;
+		}
 		return (card.id in config[selectedBanlist] && config[selectedBanlist][card.id] === selectedLimitation);
 	});
 }
@@ -226,7 +229,7 @@ function applyFilters(filterObject, banlist, lflist) {
     for (prop in o) {
         if (o.hasOwnProperty(prop) && o.propertyIsEnumerable(prop)) {
             if (o[prop] !== null) {
-                queriedCards = window['filter' + prop](queriedCards, (typeof args[prop] === "string") ? "" + o[prop] : o[prop], args[prop] || 0, banlist, lflist);
+                queriedCards = window['filter' + prop](queriedCards, (typeof args[prop] === "string") ? "" + o[prop] : parseInt(o[prop], 10), args[prop] || 0, banlist, lflist);
             }
         }
     }
