@@ -19,8 +19,7 @@ var cards = [],
     nameInput = $('#nameInput'), // input for card names/descriptions
     typeSelect = $('#typeSelect'), // select for type (Monster, Spell, Trap)
     cardImage = $('#cardImage'), // selected card image
-    cardDescription = $('#cardDescription');
-s // selected card description
+    cardDescription = $('#cardDescription'); // selected card description
 
 cards = $.getJSON(databaseSource);
 
