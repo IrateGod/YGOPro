@@ -1,13 +1,13 @@
 var cards = [],
-	lflist = {};
+    lflist = {};
 $.getJSON('http://ygopro.us/manifest/database.json', function(data) {
     cards = data;
 });
 $.get('http://ygopro.us/ygopro/lflist.conf', function(data) {
-	lflist = ConfigParser(data, {
-		keyValueDelim: " ",
-		blockRegexp: /^\s?\!(.*?)\s?$/
-	});
+    lflist = ConfigParser(data, {
+        keyValueDelim: " ",
+        blockRegexp: /^\s?\!(.*?)\s?$/
+    });
 });
 
 function fAttrRace(obj, num, at) {
@@ -206,25 +206,25 @@ function filterScale(result, scale, op) {
 }
 
 function filterForbiddenLimited(result, selectedLimitation, placeholder, selectedBanlist, config) {
-	return result.filter(function(card) {
-		if(!(card.id in config[selectedBanlist]) && selectedLimitation === 3) {
-			return true;
-		}
-		return (card.id in config[selectedBanlist] && config[selectedBanlist][card.id] === selectedLimitation);
-	});
+    return result.filter(function(card) {
+        if (!(card.id in config[selectedBanlist]) && selectedLimitation === 3) {
+            return true;
+        }
+        return (card.id in config[selectedBanlist] && config[selectedBanlist][card.id] === selectedLimitation);
+    });
 }
 
 function applyFilters(filterObject, banlist, lflist) {
     var queriedCards = cards,
         o = filterObject,
         prop,
-		args = {
+        args = {
             'Atk': 1,
             'Def': 1,
             'Level': 1,
             'Scale': 1,
-			'Name': "",
-			"Desc": ""
+            'Name': "",
+            "Desc": ""
         };
     for (prop in o) {
         if (o.hasOwnProperty(prop) && o.propertyIsEnumerable(prop)) {
@@ -249,7 +249,7 @@ function generateQueryObject() {
             "Def",
             "Level",
             "Scale",
-			"ForbiddenLimited"
+            "ForbiddenLimited"
         ];
     filters.forEach(function(filter) {
         retVal[filter] = $('[data-input-' + filter + ']').val() || null;
@@ -258,74 +258,33 @@ function generateQueryObject() {
 }
 
 function addMainDeckLegal(id, md, sd, ed, flList, currentList) {
-
-
     return addDeckLegal(id, md, 60, flList, currentList, sd, ed);
-
-
 }
 
 function addSideDeckLegal(id, md, sd, ed, flList, currentList) {
-
-
     return addDeckLegal(id, sd, 15, flList, currentList, md, ed);
-
-
 }
 
 function addExtraDeckLegal(id, md, sd, ed, flList, currentList) {
-
-
     return addDeckLegal(id, ed, 15, flList, currentList, md, sd);
-
-
 }
 
 function addDeckLegal(id, targetDeck, targetDeckSize, flList, currentList, deck2, deck3) {
-
-
-
     function idMatches(value) {
-
-
         return ((id === value) || (id[1] !== undefined && id[1] === value) || (value[1] !== undefined && id === value[1]) || (id[1] !== undefined && id[1] === value[1]));
-
- 
-   }
-
-
-
+    }
     if (targetDeckSize <= targetDeck.length) {
-
         return false;
-
-
     }
-
     var matchingCopies = targetDeck.filter(idMatches).length + deck2.filter(idMatches).length + deck3.filter(idMatches).length;
-
     var maxCopies;
-
-
     if (id[1] === undefined) {
-
         maxCopies = flList[currentList][id];
-    }
-
-
-    else
- {
+    } else {
         maxCopies = flList[currentList][id[1]];
     }
-
-
-    if (maxCopies === undefined)
- {
+    if (maxCopies === undefined) {
         maxCopies = 3;
     }
-
-
     return (matchingCopies < maxCopies);
-
-
 }
