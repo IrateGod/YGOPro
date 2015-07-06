@@ -260,7 +260,7 @@ function generateQueryObject() {
 function addMainDeckLegal(id, md, sd, ed, flList, currentList) {
 
 
-    return addDeckLegal(id, md, 40, flList, currentList, sd, ed);
+    return addDeckLegal(id, md, 60, flList, currentList, sd, ed);
 
 
 }
