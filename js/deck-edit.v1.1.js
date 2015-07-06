@@ -256,3 +256,76 @@ function generateQueryObject() {
     });
     return retVal;
 }
+
+function addMainDeckLegal(id, md, sd, ed, flList, currentList) {
+
+
+    return addDeckLegal(id, md, 40, flList, currentList, sd, ed);
+
+
+}
+
+function addSideDeckLegal(id, md, sd, ed, flList, currentList) {
+
+
+    return addDeckLegal(id, sd, 15, flList, currentList, md, ed);
+
+
+}
+
+function addExtraDeckLegal(id, md, sd, ed, flList, currentList) {
+
+
+    return addDeckLegal(id, ed, 15, flList, currentList, md, sd);
+
+
+}
+
+function addDeckLegal(id, targetDeck, targetDeckSize, flList, currentList, deck2, deck3) {
+
+
+
+    function idMatches(value) {
+
+
+        return ((id === value) || (id[1] !== undefined && id[1] === value) || (value[1] !== undefined && id === value[1]) || (id[1] !== undefined && id[1] === value[1]));
+
+ 
+   }
+
+
+
+    if (targetDeckSize <= targetDeck.length) {
+
+        return false;
+
+
+    }
+
+    var matchingCopies = targetDeck.filter(idMatches).length + deck2.filter(idMatches).length + deck3.filter(idMatches).length;
+
+    var maxCopies;
+
+
+    if (id[1] === undefined) {
+
+        maxCopies = flList[currentList][id];
+    }
+
+
+    else
+ {
+        maxCopies = flList[currentList][id[1]];
+    }
+
+
+    if (maxCopies === undefined)
+ {
+        maxCopies = 3;
+    }
+
+
+    return (matchingCopies < maxCopies);
+
+
+}
