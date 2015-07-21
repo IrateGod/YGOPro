@@ -6,17 +6,20 @@
 		<script src="js/parseYDK.js"></script>
 		<script>
 			$(function(){
-				document.getElementById("ydkUploader").addEventListener("change", function(evt) {
-					var file = evt.target.files[0],
-						reader = new FileReader();
-					reader.readAsText(file);
-					reader.onload = function(e) {
-						var list = parseYDK(e.target.result);
-						console.log(ydkToList(list, {
-							multipleEntries: true,
-							formatString: "x%i"
-						}));
-					};
+				$.getJSON('manifest/database.json', function(data) {
+					document.getElementById("ydkUploader").addEventListener("change", function(evt) {
+						var file = evt.target.files[0],
+							reader = new FileReader();
+						reader.readAsText(file);
+						reader.onload = function(e) {
+							var list = parseYDK(e.target.result);
+							console.log(ydkToList(list, {
+								multipleEntries: true,
+								formatString: "x%i",
+								cards: data
+							}));
+						};
+					});
 				});
 			});
 		</script>

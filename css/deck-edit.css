@@ -1,0 +1,307 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.mainContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.left {
+    height: 100%;
+    float: left;
+    width: 24%;
+}
+
+.cardImage {
+    top: 0%;
+    left: 0%;
+    width: 179px;
+    margin: 0 auto;
+    height: 38%;
+    border: 1px solid blue;
+}
+
+.cardDescription {
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 62%;
+    border: 1px solid red;
+}
+
+.searchBar {
+    float: right;
+    width: 75.7%;
+    height: 25%;
+}
+
+.searchLeft {
+    float: left;
+    height: 100%;
+    width: 33%;
+    padding: 1%;
+    border: 1px solid yellow;
+	overflow-y: auto;
+}
+
+.shuffleDeck {
+    float: right;
+    height: 15%;
+    bottom: 0%;
+}
+
+.sortDeck {
+    float: right;
+    height: 15%;
+    bottom: 0%;
+}
+
+button.clearDeck {
+    float: right;
+    height: 15%;
+    bottom: 0%;
+}
+
+.searchRight {
+    float: right;
+    height: 100%;
+    width: 66%;
+    border: 1px solid orange;
+    overflow-y: auto;
+}
+
+div.searchBlock select.trapSelect,
+div.searchBlock select.spellSelect,
+div.searchBlock select.monsterCardSelect,
+div.searchBlock select.monsterTypeSelect,
+div.searchBlock select.attributeSelect,
+div.searchBlock select.raceSelect {
+    float: right;
+    height: 15%;
+    display: none;
+}
+
+div.searchBlock label[for^="attribute"],
+div.searchBlock label[for^="race"] {
+    display: none;
+}
+
+select.typeSelect {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+select.attributeSelect,
+select.raceSelect {
+    display: none;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+select.setcodeSelect {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+input.levelInput {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+.raceSelect {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+select.forbiddenLimitedSelect {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+input.atkInput {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+input.defInput {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+input.nameInput {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+.descInput {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+button.clearForm {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+input.scaleInput {
+    display: block;
+    float: left;
+    height: 15%;
+    width: 20%;
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+.center {
+    height: 74.5%;
+    width: 50.5%;
+    border: 1px solid red;
+    float: left;
+}
+
+.mainDeck {
+    float: left;
+    height: 66%;
+    width: 100%;
+    border: 1px solid blue;
+}
+
+.extraDeck {
+    float: left;
+    height: 17.5%;
+    width: 100%;
+    border: 1px solid green;
+}
+
+.sideDeck {
+    float: left;
+    height: 15.5%;
+    width: 100%;
+    border: 1px solid yellow;
+}
+
+.right {
+    float: right;
+    height: 74.5%;
+    width: 25%;
+    border: 1px solid green;
+}
+
+.searchResults {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+div.descriptionContainer span {
+    width: 84%;
+    float: right;
+}
+
+div.thumbContainer img {
+    width: 15%;
+    float: left;
+}
+
+.maincontainer label {
+    width: 33%;
+    display: block;
+    float: left;
+}
+
+.maincontainer select {
+    width: 45%;
+    display: block;
+    float: left;
+}
+
+button.saveDeck,
+.saveDeckAs {
+    margin-left: 1%;
+    margin-top: 1.5%;
+}
+
+label,
+select,
+button {
+    margin-bottom: 1%;
+    line-height: 1em;
+}
+
+button.deleteDeck {
+    display: block;
+    margin-top: 2%;
+    float: left;
+}
+
+button.searchButton {
+    position: relative;
+    z-index: 9001;
+}
+
+input.decknameInput {
+    float: left;
+    display: block;
+    width: 45%;
+    margin-left: 15%;
+}
+
+div.clearsortshufflewrapper {
+    overflow: auto;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.resultDiv {
+    overflow: auto;
+    border: 1px solid black;
+}
