@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/deck-edit.css">
     <script src="../js/ConfigParser.js"></script>
     <script src="../js/jquery-1.11.0.min.js"></script>
+	<script src="../js/jquery-ui.min.js"></script>
 	<script src="../js/cards-offline.js"></script>
 	<script src="../js/lflist-offline.js"></script>
 	<script src="../js/setcodes-offline.js"></script>
@@ -142,10 +143,11 @@
                 <div class="searchBlock">
                     <label for="forbiddenLimitedSelect">Limit: </label>
                     <select class="forbiddenLimitedSelect" data-input-forbiddenlimited>
-                        <option value="3">All</option>
+                        <option value="4">All</option>
                         <option value="0">Forbidden</option>
                         <option value="1">Limited</option>
                         <option value="2">Semi-Limited</option>
+						<option value="3">Not on the list</option>
                     </select>
                     <br />
                     <label for="atkInput">ATK</label>
@@ -166,12 +168,9 @@
             </div>
         </div>
         <div class="center">
-            <div class="mainDeck">
-            </div>
-            <div class="extraDeck">
-            </div>
-            <div class="sideDeck">
-            </div>
+            <div class="mainDeck"></div>
+            <div class="extraDeck"></div>
+            <div class="sideDeck"></div>
         </div>
         <div class="right">
             <div class="searchResults">
