@@ -10,8 +10,11 @@ function parseYDK(ydkFileContents) {
         },
         current = "";
     lineSplit.forEach(function(value) {
+        if (value === "") {
+            return;
+        }
         if (value[0] === "#" || value[0] === "!") {
-            if (originalValues.hasOwnProperties(value.substr(1))) {
+            if (originalValues.hasOwnProperty(value.substr(1))) {
                 current = value.substr(1);
             } else {
                 return;
@@ -34,27 +37,37 @@ function ydkToList(deckObject, options) {
         formatString = options.formatString || "%ix",
         cards = options.cards,
         decks = ["Main", "Extra", "Side"],
+        cardFound = false,
         temp;
     decks.forEach(function(deck) {
         output += deck + " Deck (" + deckObject[deck.toLowerCase() + "Length"] + "):\r\n";
-        for (temp in deckObject[deck]) {
+        for (temp in deckObject[deck.toLowerCase()]) {
             if (multipleEntries) {
-                output += formatString.replace("%i", deckObject[deck][temp]) + " ";
+                output += formatString.replace("%i", deckObject[deck.toLowerCase()][temp]) + " ";
                 cards.forEach(function(card) {
-                    if (temp === card.id) {
+                    if (parseInt(temp, 10) === card.id) {
                         output += card.name;
+                        cardFound = true;
                     }
                 });
+                if (!cardFound) {
+                    output += temp + " (card not yet registered in database)";
+                }
                 output += "\r\n";
             } else {
-                while (deckObject[deck][temp]--) {
+                while (deckObject[deck.toLowerCase()][temp]--) {
                     cards.forEach(function(card) {
-                        if (temp === card.id) {
+                        if (parseInt(temp, 10) === card.id) {
                             output += card.name + "\r\n";
+                            cardFound = true;
                         }
                     });
+                    if (!cardFound) {
+                        output += temp + " (card not yet registered in database)\r\n";
+                    }
                 }
             }
+            cardFound = false;
         }
     });
     return output;

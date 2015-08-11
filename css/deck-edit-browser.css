@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body {
+#deckedit {
     font-family: monospace;
     font-size: 12px;
 }
@@ -17,7 +17,7 @@ body {
     float: left;
     width: 24%;
 }
-
+/*
 .cardImage {
     top: 0%;
     left: 0%;
@@ -25,7 +25,8 @@ body {
     height: 38%;
     border: 1px solid blue;
     min-height: 256px;
-}
+    display: block;
+}*/
 
 .cardDescription {
     top: 0%;
@@ -63,7 +64,7 @@ body {
     width: 33.33%;
     padding: 1%;
     border: 1px solid yellow;
-	overflow-y: auto;
+    overflow-y: auto;
 }
 
 div.searchLeft label[for^="banlistSelect"] {
@@ -355,7 +356,7 @@ button.searchButton {
 button.clearForm {
     display: block;
     float: right;
-    height: 34%;
+    height: 33%;
     width: 8.5%;
     margin-right: 6.75%;
     margin-top: -15.25%;
@@ -423,8 +424,8 @@ div.descriptionContainer span {
 }
 
 div.thumbContainer img {
-    width: 15%;
     float: left;
+    width: 100%;
 }
 
 .maincontainer label {
@@ -454,6 +455,55 @@ button {
 .mainDeck img {
     width: 66px;
 }
-.sideDeck img, .extraDeck img {
-	width: 52px;
+
+.sideDeck img,
+.extraDeck img {
+    width: 52px;
+}
+
+[data-card-limit="0"]:before {
+    content: '';
+    /* background-color: red; */
+    
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(http://ygopro.us/img/lim.png);
+    background-size: 42px 41px;
+}
+
+[data-card-limit="1"]:before {
+    content: '';
+    /* background-color: yellow; */
+    
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(http://ygopro.us/img/lim.png);
+    background-size: 42px 41px;
+    background-position-x: 20px;
+}
+
+[data-card-limit="2"]:before {
+    content: '';
+    /* background-color: blue; */
+    
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(http://ygopro.us/img/lim.png);
+    background-size: 42px 41px;
+    background-position-y: 20px;
+}
+
+span.cardImage {
+    float: left;
+    width: 15%;
+    position: relative;
 }
