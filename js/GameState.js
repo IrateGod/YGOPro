@@ -1,53 +1,50 @@
 var GameState = {
-    PublicState: {
         "Player 1": {
-            Hand: {
-                0: [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
-                1: [ , ],
-                2: [ , ],
-                3: [ , ],
-                4: [ , ]
-            },
-            Field: {
-                "Monster Zone": {
-                    0: [ /* as with hand, index 0: card ID */, /* index 1: position, face-down ATK = -1, face-down DEF = 0, face-up DEF = 1, face-up ATK = 2 */ ],
-                    1: [ , ],
-                    2: [ , ],
-                    3: [ , ],
-                    4: [ , ]
-                },
-                "Spell/Trap Zone": {
-                    0: [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
-                    1: [ , ],
-                    2: [ , ],
-                    3: [ , ],
-                    4: [ , ],
-                    5: [ , ], // Field Spell Zone
-                    6: [ , ], // Left Pendulum Scale
-                    7: [ , ], // Right Pendulum Scale
-                }
-            },
+            Hand: [
+                [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
+                [ , ],
+                [ , ],
+                [ , ],
+                [ , ]
+            ],
+            "Monster Zone": [
+                [ /* as with hand, index 0: card ID */, /* index 1: position, face-down ATK = -1, face-down DEF = 0, face-up DEF = 1, face-up ATK = 2 */ ],
+                [ , ],
+                [ , ],
+                [ , ],
+                [ , ]
+            ],
+            "Spell/Trap Zone": [
+                [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
+                [ , ],
+                [ , ],
+                [ , ],
+                [ , ],
+                [ , ], // index 5: Field Spell Zone
+                [ , ], // index 6: Left Pendulum Scale
+                [ , ], // index 7: Right Pendulum Scale
+            ],
             Graveyard: [ /* array of IDs */ ],
-            "Banished Zone": {
-                0: [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
-                1: [ , ],
-                2: [ , ],
-                3: [ , ] //, etc...
+            "Banished Zone": [
+                [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
+                [ , ],
+                [ , ],
+                [ , ] //, etc...
             },
-            "Extra Deck": {
-                0: [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
-                1: [ , ],
-                2: [ , ],
-                3: [ , ],
-                4: [ , ] //, etc...
-            },
-            Deck: {
-                0: [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
-                1: [ , ],
-                2: [ , ],
-                3: [ , ],
-                4: [ , ] //, etc...
-            },
+            "Extra Deck": [
+                [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
+                [ , ],
+                [ , ],
+                [ , ],
+                [ , ] //, etc...
+            ],
+            Deck: [
+                [ /* index 0: card ID */, /* index 1: position, face-down = 0, face-up = 1 */ ],
+                [ , ],
+                [ , ],
+                [ , ],
+                [ , ] //, etc...
+            ],
             LP: 8000
         },
         "Player 2": {
@@ -60,5 +57,4 @@ var GameState = {
             // etc...
         },
         "Turn Counter": 1
-    }
 };
