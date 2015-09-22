@@ -1,5 +1,4 @@
-function ConfigParser(content, options) {
-    "use strict";
+module.exports = function ConfigParser(content, options) {
     if (!(this instanceof ConfigParser)) {
         return new ConfigParser(content, options);
     }
@@ -51,4 +50,4 @@ function ConfigParser(content, options) {
         }
     });
     return configObject;
-}
+};
