@@ -71,4 +71,14 @@ public class Collatz
         }
         return maxList.get(0);
     }
+    
+    /**
+     * Main
+     */
+    public static void main(String[] args)
+    {
+        Collatz coll = new Collatz();
+        long start = Long.parseLong(args[0]);
+        coll.sequence(start, true);
+    }
 }
